@@ -1,0 +1,17 @@
+﻿@implements IText
+
+<RadzenText
+    Attributes=AdditionalAttributes
+    TextAlign="Typography.TextAlign.DtwoTextAlignToRadzenTextAlign(TextAlign)"
+    TextStyle=Typography.TextStyle.DtwoTextStyleToRadzenTextStyle(TextStyle)>
+    @ChildContent
+    </RadzenText>
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
+
+    [Parameter] public ETextAlign TextAlign { get; set; }
+    [Parameter] public ETextStyle TextStyle { get; set; }
+}

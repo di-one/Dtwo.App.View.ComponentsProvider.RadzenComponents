@@ -1,0 +1,28 @@
+﻿@implements IFieldLayout
+
+<RadzenFieldset Text="@Text">
+    @ChildContent
+</RadzenFieldset>
+
+@*                 Expand="@Expand"
+                   Collapsed="@Collapse",
+                   Attributes=AdditionalAttributes *@
+
+                  @*  AllowCollapse="@AllowCollapse"
+                   ExpandTitle="@ExpandTitle"
+                   CollapseTitle="@CollapseTitle"
+                   ExpandAriaLabel="@ExpandAriaLabel"
+                   CollapseAriaLabel="@CollapseAriaLabel" *@
+
+@code {
+    [Parameter] public bool AllowCollapse { get; set; }
+    [Parameter] public string ExpandTitle { get; set; }
+    [Parameter] public string CollapseTitle { get; set; }
+    [Parameter] public string ExpandAriaLabel { get; set; }
+    [Parameter] public string CollapseAriaLabel { get; set; }
+    [Parameter] public EventCallback Expand { get; set; }
+    [Parameter] public bool Collapse { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public string Text { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
+}

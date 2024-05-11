@@ -1,0 +1,14 @@
+﻿@using Dtwo.API.View.Components.Feedback
+@using Dtwo.API.View.Components.Theming
+@implements IAlert
+
+<RadzenAlert AlertStyle="Alert.DtwoAlertStyleToRadzenAlertStyle(Style)" Variant="Theming.Variant.DtwoVariantToRadzenVariant(Variant)" Shade="Shade.Lighter">
+    @ChildContent
+</RadzenAlert>
+
+@code {
+    [Parameter] public EAlertStyle Style { get; set; }
+    [Parameter] public EVariant Variant { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public bool ShowIcon { get; set; }
+}

@@ -1,0 +1,20 @@
+﻿@implements IStack
+<RadzenStack
+    @attributes=AdditionalAttributes
+    JustifyContent="Layout.JustifyContent.DtwoJustifyContentToRadzenJustifyContent(JustifyContent)"
+    Orientation="Layout.Orientation.DtwoOrientationToRadzenOrientation(Orientation)"
+    Gap="@Gap"
+    Wrap="Layout.Wrap.DtwoWrapToRadzenWrap(Wrap)">
+    @ChildContent
+</RadzenStack>
+
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
+    [Parameter] public EStackOrientation Orientation { get; set; }
+    [Parameter] public string Gap { get; set; } = "3";
+    [Parameter] public EJustifyContent JustifyContent { get; set; } = EJustifyContent.Normal;
+    [Parameter] public EWrap Wrap { get; set; } = EWrap.NoWrap;
+}

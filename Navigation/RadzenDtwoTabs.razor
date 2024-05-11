@@ -1,0 +1,17 @@
+﻿@implements ITabs
+
+<RadzenTabs >
+    <Tabs>
+        @foreach(var tab in Tabs)
+        {
+            <RadzenTabsItem Text="@tab.Text">
+                <DynamicComponent Type=tab.Component />
+            </RadzenTabsItem>
+        }
+    </Tabs>
+</RadzenTabs>
+
+@code {
+    [Parameter]
+    public List<Tab> Tabs { get; set; } = new List<Tab>();
+}

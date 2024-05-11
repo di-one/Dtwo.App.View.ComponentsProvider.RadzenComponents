@@ -1,0 +1,21 @@
+﻿@implements IMainWindowTitlebar
+
+<div class="title-bar" @onmousemove="(args) => OnMouseMove?.Invoke(args)" @onpointerdown="(args) => OnMouseDown?.Invoke(args)" @onpointerup="(args) => OnMouseUp?.Invoke(args)">
+        <RadzenText TextStyle="TextStyle.H5">Dtwo</RadzenText>
+        <div class="title-bar-controls">
+        <RadzenButton Icon="minimize" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.ExtraSmall" Click="((args) => OnClickMinimize())" />
+        <RadzenButton Icon="check_box_outline_blank" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.ExtraSmall" Click="((args) => OnClickMaximize())" />
+        <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.ExtraSmall" Click="((args) => OnClickClose())" />
+        </div>
+    </div>
+@code {
+    [Parameter] public Action<MouseEventArgs> OnMouseMove { get; set; }
+    [Parameter] public Action<MouseEventArgs> OnMouseDown { get; set; }
+    [Parameter] public Action<MouseEventArgs> OnMouseUp { get; set; }
+
+    [Parameter] public Action OnClickMinimize { get; set; }
+    [Parameter] public Action OnClickMaximize { get; set; }
+    [Parameter] public Action OnClickClose { get; set; }
+
+
+}

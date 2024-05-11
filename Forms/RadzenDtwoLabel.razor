@@ -1,0 +1,9 @@
+﻿@implements ILabel
+
+<RadzenLabel Text="@Text" Component="@Component"/>
+
+@code {
+    [Parameter] public string Text { get; set; }
+    [Parameter] public string Component { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
+}

@@ -1,0 +1,8 @@
+﻿@implements IHyperLink
+
+<RadzenLink Path="@Path" Text="@Text" />
+
+@code {
+    [Parameter] public string Path { get; set; } = "";
+    [Parameter] public string Text { get; set; } = "";
+}

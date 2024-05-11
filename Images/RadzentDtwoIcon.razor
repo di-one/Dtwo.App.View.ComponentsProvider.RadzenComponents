@@ -1,0 +1,33 @@
+﻿@implements IIcon
+
+<RadzenIcon Icon="@Icon" Style=GetIconStyle(color) />
+
+@code {
+    [Parameter] public string Icon { get; set; }
+    [Parameter] public EIconColor Color { get; set; }
+
+    private Radzen.IconStyle GetIconStyle(EIconColor color)
+    {
+        switch (color)
+        {
+            case EIconColor.Primary:
+                return Radzen.IconStyle.Primary;
+            case EIconColor.Secondary:
+                return Radzen.IconStyle.Secondary;
+            case EIconColor.Success:
+                return Radzen.IconStyle.Success;
+            case EIconColor.Danger:
+                return Radzen.IconStyle.Danger;
+            case EIconColor.Warning:
+                return Radzen.IconStyle.Warning;
+            case EIconColor.Info:
+                return Radzen.IconStyle.Info;
+            case EIconColor.Light:
+                return Radzen.IconStyle.Light;
+            case EIconColor.Dark:
+                return Radzen.IconStyle.Dark;
+            default:
+                return Radzen.IconStyle.Primary;
+        }
+    }
+}

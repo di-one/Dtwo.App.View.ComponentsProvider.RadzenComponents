@@ -1,0 +1,13 @@
+﻿@typeparam TItem
+@implements ITemplateForm<TItem>
+
+<RadzenTemplateForm TItem="TItem" Data="@Data" Submit="@Submit" Attributes="@AdditionalAttributes">
+    @ChildContent
+</RadzenTemplateForm>
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public TItem Data { get; set; }
+    [Parameter] public EventCallback<TItem> Submit { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
+}

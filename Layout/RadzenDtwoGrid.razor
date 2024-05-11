@@ -1,0 +1,29 @@
+﻿@implements IGrid
+
+<RadzenRow
+    JustifyContent="@Layout.JustifyContent.DtwoJustifyContentToRadzenJustifyContent(JustifyContent)"
+    AlignItems="@Layout.AlignItems.DtwoAlignItemsToRadzenAlignItems(AlignItems)"
+    Gap="@Gap"
+    Attributes=AdditionalAttributes>
+    @ChildContent
+</RadzenRow>
+
+@* <RadzenRow>
+    <RadzenColumn Size="6" Style="background-color:red">
+        <p>a</p>
+    </RadzenColumn>
+    <RadzenColumn Size="6" Style="background-color:blue">
+        <p>b</p>
+    </RadzenColumn>
+</RadzenRow> *@
+
+
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
+    [Parameter] public EJustifyContent JustifyContent { get; set; } = EJustifyContent.Normal;
+    [Parameter] public EAlignItems AlignItems { get; set; } = EAlignItems.Normal;
+    [Parameter] public string Gap { get; set; } = "0";
+}

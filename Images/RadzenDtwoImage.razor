@@ -1,0 +1,12 @@
+﻿@implements IImage;
+
+<RadzenImage Attributes=AdditionalAttributes Path="@Path" >
+    @ChildContent
+</RadzenImage>
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
+    [Parameter] public string Path { get; set; }
+}

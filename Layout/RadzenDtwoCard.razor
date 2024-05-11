@@ -1,0 +1,15 @@
+﻿@implements ICard
+
+<RadzenCard @attributes=AdditionalAttributes Variant=Theming.Variant.DtwoVariantToRadzenVariant(Variant)>
+    @if (ChildContent != null)
+    {
+        @ChildContent
+    }
+</RadzenCard>
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public API.View.Components.Theming.EVariant Variant { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
+}

@@ -1,0 +1,34 @@
+﻿@using Dtwo.App.View.ComponentsProvider.RadzenComponents.Feedback
+@implements ICircularProgressBar
+
+<RadzenProgressBarCircular
+    Attributes=AdditionalAttributes
+    Value=Value
+    ShowValue=ShowValue
+    Unit=Unit
+    Mode=ProgressBar.DtwoProgressBarModeToRadzenProgressBarMode(Mode)
+    ProgressBarStyle=ProgressBar.DtwoProgressBarStyleToRadzenProgressBarStyle(Style)
+    Size=ProgressBar.DtwoCircularSizeToRadzenCircularSize(Size) />
+
+@code {
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
+
+    [Parameter]
+    public EProgressBarMode Mode { get; set; } = EProgressBarMode.Determinate;
+
+    [Parameter]
+    public EProgressBarStyle Style { get; set; } = EProgressBarStyle.Primary;
+
+    [Parameter]
+    public ECircularProgressBarSize Size { get; set; } = ECircularProgressBarSize.Medium;
+
+    [Parameter]
+    public int Value { get; set; }
+
+    [Parameter]
+    public bool ShowValue { get; set; }
+
+    [Parameter]
+    public string Unit { get; set; }
+}

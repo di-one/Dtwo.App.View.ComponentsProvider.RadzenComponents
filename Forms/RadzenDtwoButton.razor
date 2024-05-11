@@ -1,0 +1,31 @@
+﻿@implements IButton
+
+<RadzenButton @attributes=AdditionalAttributes
+    Click=@(args => InternalOnClicked(args))
+    ButtonStyle="Theming.Color.DtwoColorToRadzenButtonStyle(Color)"
+    Variant="Theming.Variant.DtwoVariantToRadzenVariant(Variant)"
+    Size=Button.DtwoButtonSizeToRadzenButtonSize(Size)
+    IsBusy=IsBusy
+    BusyText=BusyText
+    Disabled=Disabled>
+    @ChildContent
+    </RadzenButton>
+
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public Dtwo.API.View.Components.Theming.EColor Color { get; set; } = Dtwo.API.View.Components.Theming.EColor.Primary;
+    [Parameter] public Action<MouseEventArgs> OnClicked { get; set; }
+    [Parameter] public Dtwo.API.View.Components.Theming.EVariant Variant { get; set; }
+    [Parameter] public EButtonSize Size { get; set; } = EButtonSize.Medium;
+    [Parameter] public bool IsBusy { get; set; } = false;
+    [Parameter] public string BusyText { get; set; }
+    [Parameter] public bool Disabled { get; set; } = false;
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
+
+    private void InternalOnClicked(MouseEventArgs args)
+    {
+        OnClicked?.Invoke(args);
+    }
+}

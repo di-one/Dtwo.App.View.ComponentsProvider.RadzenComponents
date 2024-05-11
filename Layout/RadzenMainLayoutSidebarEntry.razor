@@ -1,0 +1,43 @@
+﻿@if (Item != null)
+{
+    if (Item.IsVisible == null || Item.IsVisible.Invoke() == true)
+    {
+        @if (string.IsNullOrEmpty(Item.Url))
+        {
+            <RadzenPanelMenuItem Text="@Item.Name" Icon="@Item.Icon">
+
+                @if (Item.Childs != null && Item.Childs.Any())
+                {
+                    @foreach (var child in Item.Childs)
+                    {
+                        <RadzenMainLayoutSidebarEntry Item="child" />
+                    }
+
+                }
+            </RadzenPanelMenuItem>
+        }
+        else
+        {
+            <RadzenPanelMenuItem Text
+            ="@Item.Name" Icon
+            ="home" Path
+            ="@Item.Url">
+
+                @if (Item.Childs != null && Item.Childs.Any())
+                {
+                    @foreach (var child in Item.Childs)
+                    {
+                        <RadzenMainLayoutSidebarEntry Item="child" />
+                    }
+
+                }
+            </RadzenPanelMenuItem>
+        }
+
+    }
+}
+
+@code {
+    [Parameter]
+    public MainLayoutSettings.SidebarEntry Item { get; set; }
+}
