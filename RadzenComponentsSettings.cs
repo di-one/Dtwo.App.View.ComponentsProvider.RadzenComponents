@@ -9,15 +9,15 @@ namespace Dtwo.App.View.ComponentsProvider.RadzenComponents
     {
         private List<string> m_styles = new List<string>
         {
-            "_content/Dtwo.App.View.ComponentsProvider.RadzenComponents/css/material3-dark.css",
-            "_content/Dtwo.App.View.ComponentsProvider.RadzenComponents/css/style.css",
+            "themes/Dtwo.App.View.ComponentsProvider.RadzenComponents/css/material3-dark.css",
+            "themes/Dtwo.App.View.ComponentsProvider.RadzenComponents/css/style.css",
         };
         public override List<string> Styles => m_styles;
 
 
         private List<string> m_scripts = new List<string>
         {
-            "_content/Radzen.Blazor/Radzen.Blazor.js"
+            "themes/Dtwo.App.View.ComponentsProvider.RadzenComponents/Radzen.Blazor/Radzen.Blazor.js"
         };
         public override List<string> Scripts => m_scripts;
 
